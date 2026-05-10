@@ -15,3 +15,5 @@ This triggers specifically when a student submits work for review.
 
 ---
 Right now they're bundled together. The trigger description says "use when a student submits work for review" — but roughly a third of the skill's content applies to tutoring and explanation, not feedback on submitted work. Sections like Intellectual Humility, How to Explain Difficult Concepts, Handling Misunderstanding, Contested Topics — those fire when a student asks "what does hegemony mean?" not just when they hand in an essay.
+
+Edit the fucking typo folder name. Its been a bloody arse ache long day
