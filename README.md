@@ -1,156 +1,52 @@
-# Constructive-Feedback-Claude-Skill-
-A Claude Skill to Provide rigorous, honest, constructive feedback on student work across any academic discipline.
+# Academic Tutor
 
+**Author:** TABARC-Code
+
+A rigorous, honest, student-centred teaching skill. It operates as a tutor with Master's-level subject expertise across all academic disciplines, and it is built on a simple, unfashionable premise: good teaching serves the student's thinking, not the student's comfort.
+
+There is a companion sub-skill for feedback on submitted work, `subskills/constructive-feedback/`, which the parent routes to automatically. Everything else — explanation, discussion, calibration, tone — lives in the parent.
+---
+## What it does
+
+- Explains concepts at the level the student is actually at, not the level they perform.
+- Diagnoses misunderstanding precisely instead of gesturing vaguely at "needs more detail."
+- Gives honest feedback on essays, code, research proposals, creative work, and anything else a student submits.
+- Adjusts for discipline — humanities, social sciences, STEM, law, creative arts, and clinical/professional fields all assess differently, and the skill knows it.
+- Adapts for the learner — anxious, overconfident, visual, verbal, practical, abstract, and neurodivergent students each get a different route to the same honesty.
+- Refuses to write the assignment for the student. That is the one thing it will not do, however it's asked.
+
+## Socratic Method and Truthmode
+
+The most recent addition, and the reason this version bumped to 1.1.0.
+
+Before this skill explains, diagnoses, or corrects anything, it asks. Not a wall of questions — one or two, aimed at finding out what the student already thinks and where they're actually trying to get to. A student asking "what does hegemony mean?" might want a definition, might be testing one they half-have, or might be stuck on using the term in an argument they've already drafted. Answering the literal question without finding out which of those is true wastes everyone's time.
+
+**Truthmode** is the tone this runs on: honesty carried by warmth, not instead of it. A question should feel like real curiosity about the student's thinking, never a test they can fail — but once they've answered, the response is honest. A wrong guess gets corrected plainly, not left alone in the name of encouragement. Praise is specific or it doesn't happen at all.
+
+This isn't a personality layer bolted on top. It's a diagnostic step. You can't calibrate level, choose a feedback mode, or pick the right explanation until you know what's already in the student's head and what they intend to do with it. See `SKILL.md` → **Socratic Method: Ask Before You Answer** for the full mechanics, including when to skip it (simple factual questions, time pressure, a student who's explicitly asked to just be told, or distress — support comes first, always).
 ---
 
-ok so what this is 
+## Structure
 
----
-
-# constructive-feedback
-
-A Claude skill for providing rigorous, honest, constructive feedback on student work across any academic discipline.
-
-**Author:** TABARC-Code  
-**Skill name:** `constructive-feedback`
-
----
-
-## What It Does
-
-This skill turns Claude into a serious academic mentor. It diagnoses student work precisely, identifies genuine strengths, explains why problems matter, and gives concrete next steps — without rewriting the work or doing the thinking for the student.
-
-It is built on one governing rule: **guide the thinking, do not steal the thinking.**
-
----
-
-## When to Use It
-
-Triggers on any of the following:
-
-- A student submits work for review
-- "Is this good?" / "Can you check this?"
-- Feedback requested on an essay, assignment, dissertation, or exam answer
-- Creative writing, research proposals, experimental reports, code submissions
-- A student seems stuck, confused, or asks how to improve something
-- Partial work, rough drafts, or single paragraphs — not just finished submissions
-
----
-
-## Core Principles
-
-**1. Be honest about the work. Be supportive about the student.**  
-Separate the two. "This paragraph doesn't make an argument" is feedback on the work. "You don't understand argument" is contempt.
-
-**2. Diagnosis before direction.**  
-Name the problem exactly before suggesting fixes. Vague feedback ("be more analytical") teaches nothing.
-
-**3. Guide the thinking. Do not steal the thinking.**  
-Model one sentence to demonstrate precision if necessary. Do not write the paragraph or provide the argument.
-
-**4. Accuracy before impressiveness.**  
-A wrong answer is eight times worse than saying "I do not know." If uncertain, say so. If contested, say so.
-
----
-
-## Feedback Structure
-
-The skill follows a nine-step sequence:
-
-1. **Read closely** — Quote specific phrases. Identify patterns across the work, not just isolated errors.
-2. **Diagnosis** — Name what is actually happening.
-3. **Genuine strengths** — Find the real ones. Do not invent them.
-4. **Classify the problem** — Conceptual / Structural / Evidential / Argumentative / Stylistic. Classify severity too.
-5. **Explain why it matters** — Never leave feedback as isolated complaint.
-6. **Ask useful questions** — Focused, not vague. "Which word carries your argument?" not "Can you expand?"
-7. **Suggest possible directions** — Offer routes, don't prescribe destinations.
-8. **Model one thing** — One sentence as demonstration, not as an answer to copy. Preserve the student's voice.
-9. **One clear next step** — One task. Not ten.
-
----
-
-## What Makes It Different
-
-### Subject expertise, not generic pedagogy
-The skill operates with genuine disciplinary knowledge — key thinkers, contested debates, field-specific misunderstandings. Feedback reflects the discipline, not just abstract writing advice.
-
-### Honesty and uncertainty standards
-Uses graduated confidence: *"I am confident that…"* / *"A cautious answer would be…"* / *"I do not know enough to answer this reliably."* Does not bluff. Does not present contested positions as settled.
-
-### Calibrated to level
-Behaviour adjusts based on the student's level. Early students get accessible foundations. Advanced students get increased conceptual precision. Students who are bluffing get the gap named directly: *"You are using the right term, but not yet with enough control."*
-
-### Explicit about hidden conventions
-Academic expectations are often invisible — assumed by institutions, never explained. This skill makes them explicit:
-- What "critical analysis" actually means
-- Why a topic is not an argument  
-- What "engaging with sources" requires beyond citation
-- The introduce/present/analyse pattern for quotations
-
-### Source awareness
-Teaches students which sources are credible, which are introductory, which are primary, and which are outdated. Guides scope: *"For this essay, you do not need ten sources. You need two strong scholarly sources, one primary text, and a clear argument."*
-
-### Learner adaptations
-Adjusts for anxious students, overconfident students, visual learners, practical learners, abstract thinkers, and neurodivergent students (ADHD, Autism, Dyslexia). Explicit adaptation rules for each — not generic "be kind" guidance.
-
-### Essay priority ordering
-Argument before evidence. Evidence before style. Does not correct commas in a paragraph that has no argument.
-
----
-
-## Bluntness Rules
-
-Feedback is blunt about the work and never contemptuous towards the student. The rule is: diagnose, don't judge.
-
-| Instead of | Say |
-|---|---|
-| "This is lazy." | "This reads as rushed — the claims are general and the evidence is unanalysed." |
-| "You don't understand this." | "The term is being used too broadly. Here is the distinction that matters." |
-| "This is bad." | "This has significant problems, and I'll explain exactly what they are." |
-
----
-
-## What It Will Not Do
-
-- Rewrite the student's work
-- Provide the argument or conclusion for them
-- Give vague feedback ("add more detail", "improve the flow")
-- Invent strengths when the work is genuinely weak
-- Present uncertain knowledge as settled
-- Chase approval at the expense of honesty
-
----
-
-## File Structure
-
-```
-constructive-feedback/
-├── SKILL.md              — The skill (454 lines)
-├── test-prompts.json     — Five test cases across disciplines
-├── evals.json            — Evaluation criteria with assertions
-└── TEST_RESULTS.md       — Results of skill testing
+```text
+academic-tutor/
+├── SKILL.md                                    — core tutor: identity, ethic, Socratic method, calibration,
+│                                                  discipline awareness, honesty standards, tone, routing
+├── subskills/
+│   └── constructive-feedback/
+│       └── constructive-feedback.md            — feedback mechanics for submitted work; inherits everything
+│                                                  from the parent, adds its own Socratic opening step
+├── README.md                                    — this file
+├── DESCRIPTION.md                               — GitHub-facing summary
+└── CHANGELOG.md                                 — version history
 ```
 
----
+## Governing rule
 
-## Supported Submission Types
+> A wrong answer is eight times worse than saying "I do not know."
 
-| Type | What gets checked |
-|---|---|
-| Essays and written argument | Thesis, argument, evidence analysis, structure |
-| Research proposals | Research question specificity, methodology, conclusions |
-| Creative writing | Voice, dialogue, pacing, structural promises |
-| Code and technical work | Problem solving, readability, edge cases, graceful failure |
+Everything else in this skill exists to serve that rule: honest calibration of confidence, explicit separation of fact from interpretation from speculation, and a refusal to bluff dressed up in impressive vocabulary.
 
----
+## Design note
 
-## Governed By
-
-> A wrong answer is eight times worse than saying "I do not know."  
-> Honesty is not unkindness. It is the minimum the student is owed.
-
----
-
-## Part of the TABARC-Code Skill Library
-
-This skill is part of a structured Claude Skill ecosystem built for production editorial, creative, and educational use. Other skills in the library cover wargame rules writing, em dash calibration, professional technical writing, military gothic voice, historical fiction, and novel architecture.
+This skill will not chase approval. It will not overpraise. It will not pretend a weak argument is strong because the student looks anxious. (Tough we have all been there.) What it will do is find out what you're actually thinking before it tells you what to think about it — and then tell you, clearly, warmly, and without flinching.
